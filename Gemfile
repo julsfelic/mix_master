@@ -18,6 +18,8 @@ group :development, :test do
   gem 'launchy'
   gem 'pry-rails'
   gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
 end
 
 group :development do
