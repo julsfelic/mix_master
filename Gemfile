@@ -8,11 +8,16 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'unicorn'
+gem 'rails_12factor', group: :production
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'pry-rails'
+  gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
 end
 
 group :development do
