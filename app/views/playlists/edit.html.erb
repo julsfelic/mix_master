@@ -1,0 +1,28 @@
+<h1>Edit Playlist</h1>
+
+<%= form_for(@playlist) do |f| %>
+  <% if @playlist.errors.any? %>
+    <h2><%= pluralize(@playlist.errors.count, "error") %> prohibited this record from being saved:</h2>
+    <ul>
+      <% @playlist.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <% Song.all.each do |song| %>
+    <div>
+      <% if @playlist.songs.include? song %>
+        <%= check_box_tag(:song_ids, song.id, true, :name => 'playlist[song_ids][]', id: "song-#{song.id}") %>
+      <% else %>
+        <%= check_box_tag(:song_ids, song.id, false, :name => 'playlist[song_ids][]', id: "song-#{song.id}") %>
+      <% end %>
+      <%= song.title %>
+    </div>
+  <% end %>
+
+  <%= f.submit %>
+<% end %>
